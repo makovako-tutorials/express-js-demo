@@ -8,6 +8,8 @@ const app = express();
 
 const PORT = process.env.PORT || 5000; // default from environment or my port
 
+// Basic get
+
 // app.get('/', (req, res) => {
 //     // res.send('Hello World');
 //     res.sendFile(path.join(__dirname, 'public','index.html'), (err) => {
@@ -32,19 +34,13 @@ app.get('/', (req, res) => res.render('index', {
     members
 }));
 
-// set a static folder, so it serves noramlly
+// set a static folder, so it serves normally
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Members api route
 app.use('/api/members', require('./routes/api/members'));
 
-
-
-
-
-
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
-
 });
